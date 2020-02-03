@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Desafio 01 LaunchBase RocketSeat</h1>
+    <form>
+      <h2>Calculadora IMC</h2>
+
+      <div class="person">
+        <div id="informs">
+          <label for="name">Nome: *</label>
+          <input id="name" placeholder="Olá, Qual seu nome?" required />
+        </div>
+
+        <div id="sexs">
+          <label for="sex">Sexo:</label>
+          <label for="M">Masculino</label>
+          <input type="radio" name="sexo" id="M" />
+          <label for="F">Feminino</label>
+          <input type="radio" name="sexo" id="F" />
+        </div>
+      </div>
+      <div class="numbers">
+        <div id="altura">
+          <label for="height">Altura: *</label>
+          <input
+            placeholder=" Exp: 1,75"
+            type="number"
+            id="height"
+            required
+          />
+        </div>
+
+        <div id="peso">
+          <label for="weight">Peso: *</label>
+          <input
+            placeholder=" Exp: 65,5"
+            type="number"
+            id="weight"
+            required
+          />
+        </div>
+      </div>
+
+      <button type="submit" onclick="(calculate())">Calcular</button>
+      <div class="result">
+        <h2 id="imc"></h2>
+        <h3 id="result"></h3>
+
+      </div>
+    </form>
+
+    <script>
+      function calculate() {
+        let name = document.getElementById("name").value;
+        let height = document.getElementById("height").value;
+        let weight = document.getElementById("weight").value;
+        let result = document.getElementById("result");
+        let imcResult = document.getElementById("imc");
+        const imc = weight / (height * height);
+
+        if (imc < 19) {
+          imcResult.innerHTML = `Seu IMC é: ${imc.toFixed(2)}`
+          result.innerHTML = `${name} você está abaixo do peso.`
+        } else if (imc < 25) {
+          imcResult.innerHTML = `Seu IMC é: ${imc.toFixed(2)}`
+          result.innerHTML = `Parabéns ${name} você está no seu pesso ideal.`
+        } else if (imc < 30) {
+          imcResult.innerHTML = `Seu IMC é: ${imc.toFixed(2)}`
+          result.innerHTML = `Olá ${name}, você está levemente acima do peso, fique atento.`
+        } else if (imc < 35) {
+          imcResult.innerHTML = `Seu IMC é: ${imc.toFixed(2)}`
+          result.innerHTML = `Olá ${name}, você está com obesidade grau I procure um médico para saber mais.`
+        } else if (imc < 40) {
+          imcResult.innerHTML = `Seu IMC é: ${imc.toFixed(2)}`
+          result.innerHTML = `Olá ${name}, você está com obesidade grau II procure um médico para saber mais.`
+        } else {
+          imcResult.innerHTML = `Seu IMC é: ${imc.toFixed(2)}`
+          result.innerHTML = `Olá ${name}, infelizmente você está com obesidade mórbida procure um médico com urgência`
+        }
+      }
+    </script>
+  </body>
+</html>
